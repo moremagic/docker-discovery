@@ -1,0 +1,3 @@
+#! /usr/bin/perl
+print join('.', unpack('C4', gethostbyname($ARGV[0])));
+
