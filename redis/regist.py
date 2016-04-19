@@ -40,6 +40,7 @@ def getContainers():
     datas = {}
     for con in jsonData:
         name = con['Names'][-1][1:]
+        name = name[name.find('/')+1:]
         con_ip = getIpAddress(name)
 
         for port in con['Ports']:
@@ -61,3 +62,4 @@ while True:
     print(redisDump())
     sys.stdout.flush()
     time.sleep(3)
+
