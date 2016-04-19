@@ -58,8 +58,11 @@ def getIpAddress(name):
         return 'unknown'
 
 while True:
-    addData(getContainers())
-    print(redisDump())
-    sys.stdout.flush()
+    try:
+        addData(getContainers())
+        print(redisDump())
+        sys.stdout.flush()
+    except Exception as e:
+        print(e)
     time.sleep(3)
 
