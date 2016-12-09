@@ -43,7 +43,7 @@ def getContainers():
         for port in con['Ports']:
             key = name + '-' + str(port['PrivatePort'])
             if 'IP' in port:
-                value = str(port['IP']) + ':' + str(port['PublicPort'])
+                value = str(port['IP']).replace('0.0.0.0', DOCKER_HOST[:DOCKER_HOST.find(':')]) + ':' + str(port['PublicPort'])
                 datas[key] = value
                 print( key + '(' +  value + ')' )
 
