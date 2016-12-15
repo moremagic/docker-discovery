@@ -38,7 +38,7 @@ def getContainers():
     datas = {}
 
     for con in jsonData:
-        name = con['Names'][-1][1:]
+        name = con['Names'][0][1:]
         name = name[name.find('/')+1:]
         for port in con['Ports']:
             key = name.replace('_','-') + '-' + str(port['PrivatePort']) # RFC952
